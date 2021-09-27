@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script defer src="./assets/js/script.js"></script>
+    <title>Code Quiz</title> 
+</head>
+<body>
+    <header>
+        <div class="view-high-scores"><button class="reset hidden">Reset Scores</button><button class="high-scores-button">View High Scores</button></div>
+        <div class="header-separator"></div>
+        <div class="time-left">Time Left: <span id="seconds">60</span> Seconds</div>
+    </header>
+    <main>
+        <div class="start-container">
+            <h1 class="welcome">Welcome to the Code Quiz!</h1>
+            <p class="rules">I will write some rules here.</p>
+            <button class="start">Start The Game!</button>
+        </div>
+        <div class="quiz-container hidden">
+            <h1 class="question" id="question">What is the meaning of life?</h1>
+            <div class="answers" id="answers">
+                <button class="answer answer-a">Answer A</button>
+                <button class="answer answer-b">Answer B</button>
+                <button class="answer answer-c">Answer C</button>
+                <button class="answer answer-d">Answer D</button>
+            </div>
+            <h2 class="message hidden">You are correct!</h2>
+        </div>
+        <div class="high-scores-container hidden">
+            <form action="high-score-entry">
+                <h2 class="game-over">Game Over</h2>
+                <h3 class="your-score">Your score: <span class="score">0</span></h3>
+                <label for="player">Enter Your Name</label>
+                <input type="text" name="player" id="player">
+            </form>
+        </div>
+    </main>
+</body>
+</html>
