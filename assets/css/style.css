@@ -88,13 +88,20 @@ main {
   padding: var(--padding);
   background-color: var(--background-color);
   color: var(--main-color);
-  height: 80vh;
+  height: 82vh;
 }
 
 main * {
     margin: var(--margin);
 }
 
+footer {
+  background-color: var(--background-color);
+  height: 18vh;
+  color: hotpink;
+  display: flex;
+  justify-content: space-around;
+}
 .start-container {
   text-align: center;
 }
@@ -132,8 +139,17 @@ main * {
   background-color: var(--highlight-3);
 }
 
+.game-over-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
 .high-scores-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -144,8 +160,6 @@ main * {
 .your-score {
   font-size: 3em;
 }
-
-
 
 .hidden {
   display: none;
@@ -166,6 +180,42 @@ main * {
   font-size: 2rem;
 }
 
+.enter {
+  margin: var(--margin);
+  background-color: var(--main-color);
+  border-radius: var(--button-radius);
+  border: none;
+  padding: 2px;
+  width: 20%;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.view-high-scores {
+  display: flex;
+  justify-content: space-around;
+}
+.restart, .reset {
+  margin: 2px;;
+  color: var(--background-color);
+  background-color: var(--main-color);
+  border-radius: var(--button-radius);
+  border: 1px solid var(--highlight-5);
+  padding: 16px;
+  width: 50%;
+  text-align: left;
+  font-size: 1.1rem;
+}
+
+.restart:hover {
+  background-color: var(--highlight-4);
+}
+
+.reset:active {
+  background-color: var(--highlight-4);
+}
+
+
 .correct {
   background-color: var(--highlight-1);
 }
@@ -178,4 +228,46 @@ main * {
 
 .wrong {
   background-color: var(--highlight-5);
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    align-content: space-between;
+  }
+  header div {
+    margin: var(--margin);
+  }
+  .header-separator {
+  display: none;
+  }
+  .start-container .rules {
+    text-align: left;
+  }
+  main {
+    height: 80vh;
+    padding: var(--padding);
+  }
+  footer {
+    display: block;
+    height: 20vh;
+    padding: var(--padding);
+  }
+  footer div {
+    margin-top: var(--margin);
+  }
+  .start {
+    width: 80%;
+    padding: 4px;
+    font-size: 1.5em;
+  }
+  .questions {
+    font-size: 2rem;
+  }
+  .answer {
+    width: 80%;
+    padding: 8px;
+    font-size: 1.75rem;
+  }
 }

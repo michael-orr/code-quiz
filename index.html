@@ -11,14 +11,16 @@
 </head>
 <body>
     <header>
-        <div class="view-high-scores"><button class="reset hidden">Reset Scores</button><button class="high-scores-button">View High Scores</button></div>
+        <div class="view-high-scores"><button class="restart hidden">Start New Quiz!</button><button class="reset hidden">Reset Scores</button><button class="high-scores-button">View High Scores</button></div>
         <div class="header-separator"></div>
         <div class="time-left">Time Left: <span id="seconds">60</span> Seconds</div>
     </header>
     <main>
         <div class="start-container">
             <h1 class="welcome">Welcome to the Code Quiz!</h1>
-            <p class="rules">I will write some rules here.</p>
+            <p class="rules">You have 60 seconds to answer all the questions.</p>
+            <p class="rules">Every wrong answer subtracts 10 seconds.</p>
+            <p class="rules">Your score equals the number of seconds left on the timer when all questions are answered.</p>
             <button class="start">Start The Game!</button>
         </div>
         <div class="quiz-container hidden">
@@ -31,14 +33,24 @@
             </div>
             <h2 class="message hidden">You are correct!</h2>
         </div>
-        <div class="high-scores-container hidden">
-            <form action="high-score-entry">
+        <div class="game-over-container hidden">
+            <form id="high-score-entry" action="post">
                 <h2 class="game-over">Game Over</h2>
-                <h3 class="your-score">Your score: <span class="score">0</span></h3>
+                <h3 class="your-score">Your score: <span id="score" class="score">0</span></h3>
                 <label for="player">Enter Your Name</label>
-                <input type="text" name="player" id="player">
-            </form>
+                <input type="text" name="player" id="player" value="">
+                <input type="hidden" name="last-score" id="last-score" value ="">
+                <input type="submit" value="Enter" class="enter">
+        </form>
+        </div>
+        <div class="high-scores-container hidden">
+            <h2>High Scores</h2>
+            <div class="score-sheet" id="score-sheet"></div>
         </div>
     </main>
+    <footer>
+        <div id="most-recent" class="most-recent">Most Recent Score:</div>
+        <div id="high-score" class="high-score">High Score:</div>
+    </footer>
 </body>
 </html>
