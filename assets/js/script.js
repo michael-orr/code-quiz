@@ -25,13 +25,13 @@ var questions = [
         question: "Who was the 32nd President of the United States?",
         answers: [
             {text: "Franklin D Roosevelt", correct: true},
+            {text: "Calvin Coolidge", correct: false},
             {text: "John F Kennedy", correct: false},
-            {text: "Harry Truman", correct: false},
-            {text: "Calvin Coolidge", correct: false}
+            {text: "Harry Truman", correct: false}
         ]
     },
     {
-        question: "Who was the first European to set foot in San Diego?",
+        question: "Which of the following code creates an array",
         answers: [
             {text: "Sebastiano Cortez", correct: false},
             {text: "Jose Alcala", correct: false},
@@ -303,7 +303,7 @@ function renderScoresList() {
     gameOverContainer.classList.add('hidden');
     console.log(highScoresList);
     scoreSheet.innerText = '';
-    for (i = 0; i < 11; i++) {
+    for (i = 0; i < 10; i++) {
         var highScoresListItem = document.createElement('h3');
         highScoresListItem.textContent = highScoresList[i][0] + " " + highScoresList[i][1];
         console.log(highScoresListItem);
