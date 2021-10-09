@@ -22,102 +22,93 @@ var timerContainerEl = document.querySelector('.time-left');
 
 var questions = [
     {
-        question: "Who was the 32nd President of the United States?",
+        question: "Which of the following is NOT a Javascript operator",
         answers: [
-            {text: "Franklin D Roosevelt", correct: true},
-            {text: "Calvin Coolidge", correct: false},
-            {text: "John F Kennedy", correct: false},
-            {text: "Harry Truman", correct: false}
+            {text: "+", correct: false},
+            {text: "++", correct: false},
+            {text: "_", correct: true},
+            {text: "%", correct: false}
         ]
     },
     {
-        question: "Which of the following code creates an array",
+        question: "What is a container for storing data(values)?",
         answers: [
-            {text: "Sebastiano Cortez", correct: false},
-            {text: "Jose Alcala", correct: false},
-            {text: "Juan Cabrillo", correct: true},
-            {text: "Daniel Boone", correct: false}
+            {text: "Variable", correct: true},
+            {text: "Data Type", correct: false},
+            {text: "Operator", correct: false},
+            {text: "Condition", correct: false}
         ]
     },
     {
-        question: "Who is credited as the fist person to circumnavigate the world on a motorcycle?",
+        question: "What is the difference between single and double quotes in Javascript?",
         answers: [
-            {text: "Carl Stearns Clancy", correct: true},
-            {text: "William Gerren", correct: false},
-            {text: "Fernandino Cansiole", correct: false},
-            {text: "Francis Baker", correct: false}
+            {text: "Single quotes are for strings and double quotes are for everything else.", correct: false},
+            {text: "There is no difference.", correct: true},
+            {text: "Double quotes do not exist in Javascript.", correct: false},
+            {text: "Single quotes are for functions and double quotes are for strings.", correct: false}
         ]
     },
     {
-        question: "The San Diego Padres play in which division?",
+        question: "How is commenting done in Javascipt?  (choose the best answer)",
         answers: [
-            {text: "American League West", correct: false},
-            {text: "National League West", correct: true},
-            {text: "National League Central", correct: false},
-            {text: "Pacific West Division", correct: false}
+            {text: "Comments start with $$ and go to the end of the line.", correct: false},
+            {text: "Multiline comments start with /* and end with */.  Single line comments start with // and go to the end of the line.", correct: true},
+            {text: "Comments start and end with ##", correct: false},
+            {text: "Multiline comments start with /* and end with */.  Single line comments start with # and go to the end of the line.", correct: false}
         ]
     },
     {
-        question: "How many pounds are in a ton?",
+        question: "Which Javascript function will use the browser's time zone and display a date as a full text string?",
         answers: [
-            {text: "1,000", correct: false},
-            {text: "2,000", correct: true},
-            {text: "500", correct: false},
-            {text: "10,000", correct: false}
+            {text: "Date()", correct: true},
+            {text: "Now()", correct: false},
+            {text: "Minute()", correct: false},
+            {text: "CurrentTime()", correct: false}
         ]
     },
     {
-        question: "What is the highest bridge in the world?",
+        question: 'Which Javascript function returns a random number between 0 (inclusive),  and 1 (exclusive)?',
         answers: [
-            {text: "Duge Bridge", correct: true},
-            {text: "Golden Gate Bridge", correct: false},
-            {text: "Baluarte Bridge", correct: false},
-            {text: "Royal Gorge Bridge", correct: false}
+            {text: "slice()", correct: false},
+            {text: "split()", correct: false},
+            {text: "push()", correct: false},
+            {text: "Math.random()", correct: true}
         ]
     },
     {
-        question: 'Who wrote "Of Mice and Men"?',
+        question: 'A Boolean data type can only take the values _________________.',
         answers: [
-            {text: "Ernest Hemingway", correct: false},
-            {text: "Walt Whitman", correct: false},
-            {text: "Dr Suess", correct: false},
-            {text: "John Steinbeck", correct: true}
+            {text: "string or number", correct: false},
+            {text: "positive or negative", correct: false},
+            {text: "true or false", correct: true},
+            {text: "yes or no", correct: false}
         ]
     },
     {
-        question: 'Who is credited for inventing the printing press?',
+        question: "Javscript was invented by ____________",
         answers: [
-            {text: "King Wilson", correct: false},
-            {text: "Colonel Forbin", correct: false},
-            {text: "Johannes Gutenberg", correct: true},
-            {text: "Suzy Greenburg", correct: false}
+            {text: "Brendan Eich", correct: true},
+            {text: "Harvey Pekar", correct: false},
+            {text: "Bill Gates", correct: false},
+            {text: "Stephen Hawkins", correct: false}
         ]
     },
     {
-        question: "What year was the cotton gin invented?",
+        question: 'JSON stands for ____________ ',
         answers: [
-            {text: "1793", correct: true},
-            {text: "1826", correct: false},
-            {text: "1801", correct: false},
-            {text: "1772", correct: false}
+            {text: "Javascript Object Network", correct: false},
+            {text: "Javascript Opeartional Nodes", correct: false},
+            {text: "Javascript Output Network", correct: false},
+            {text: "JavaScript Object Notation", correct: true}
         ]
     },
     {
-        question: 'Who holds the NFL record for most touchdown passes in a single season?',
+        question: "The ______________ API interface allows web browser to make HTTP requests to web servers.",
         answers: [
-            {text: "Dan Marino", correct: false},
-            {text: "Joe Montana", correct: false},
-            {text: "John Elway", correct: false},
-            {text: "Peyton Manning", correct: true}
-        ]
-    },
-    {
-        question: "Who was the last NASA astronaut to walk on the moon?",
-        answers: [
-            {text: "Eugene Cernan", correct: true},
-            {text: "Neil Armstrong", correct: false},
-            {text: "Buzz Aldrin", correct: false},
-            {text: "Cliff Robertson", correct: false}
+            {text: "Fetch", correct: true},
+            {text: "Object", correct: false},
+            {text: "Conditional", correct: false},
+            {text: "Variable", correct: false}
         ]
     }
 ];
@@ -343,23 +334,4 @@ highScoreForm.addEventListener("submit", function (event) {
     renderHighScore();
 });
 
-
-
-//DONE
-//start the quiz//--
-//timer//--
-//set next question//--
-//show result message / colors//--
-//evaulate if correct answers//--
-//subtract time for incorrect answers//--
-//end quiz when timer runs out.//--
-// make list of high scores - USE THE TODOS ACTIVITY AS AN EXAMPLE.
-//high score reset button
-//see high scores section (without playing game)
-//restart button on high scores section
-//sort high scores
-//show high score in corner
-
-//THINGS LEFT TO DO
-//style for mobile
 
