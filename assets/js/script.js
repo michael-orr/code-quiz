@@ -283,6 +283,8 @@ function renderHighScore() {
       });
     highScore = highScoresList[0];
     highScoreEl.innerText = "High Score:   " + highScore[0] + " - " + highScore[1];
+    } else {
+        highScoresList = [];
     };
 }
 
