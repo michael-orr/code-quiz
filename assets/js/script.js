@@ -148,7 +148,6 @@ function countdown() {
     timer = setInterval(function () {
       if (timeLeft <= 0) {
         gameOver();
-        console.log(currentQuestionIndex);
         clearInterval(timer);
         timerEl.textContent = "0";
       } else {
@@ -168,8 +167,6 @@ function showQuestion() {
         answerButton.classList.add('answer');
         answerButton.innerText = questions[currentQuestionIndex].answers[i].text;
         answerButtonsEl.appendChild(answerButton);
-        console.log(questions[currentQuestionIndex].answers[i].text);
-        console.log(questions[currentQuestionIndex].answers[i].correct);
         answerButton.addEventListener('click', answerQuestion);  
         if (questions[currentQuestionIndex].answers[i].correct === true) {
         answerButton.dataset.correct = true;
@@ -223,8 +220,6 @@ function firstQuestion() {
         answerButton.classList.add('answer');
         answerButton.innerText = questions[currentQuestionIndex].answers[i].text;
         answerButtonsEl.appendChild(answerButton);
-        console.log(questions[currentQuestionIndex].answers[i].text);
-        console.log(questions[currentQuestionIndex].answers[i].correct);
         answerButton.addEventListener('click', answerQuestion);    
         if (questions[currentQuestionIndex].answers[i].correct === true) {
         answerButton.dataset.correct = true;
@@ -260,7 +255,6 @@ function renderLastScore() {
     if (!player) {
         return;
     };
-    console.log(player + " " + lastPlayersScore); 
     mostRecent.innerText = "Most Recent Score:   " + player + " - " + lastPlayersScore;
 }
 
@@ -268,7 +262,7 @@ function renderHighScore() {
     var highScore = [];
     timerContainerEl.classList.add('hidden');
     highScoresList = JSON.parse(localStorage.getItem("highScoresList"));
-    if (highScoresList) {
+    if (highScoresList.length > 0) {
     highScoresList.sort(function(a, b) {
         return b[1] - a[1];
       });
@@ -291,19 +285,20 @@ function renderScoresList() {
     reset.classList.remove('hidden');
     highScoresButton.classList.add('hidden');
     highScoresList = JSON.parse(localStorage.getItem("highScoresList"));
-    highScoresList.sort(function(a, b) {
-        return b[1] - a[1];
-      });
+    // highScoresList.sort(function(a, b) {
+    //     return b[1] - a[1];
+    //   });
     highScoresContainer.classList.remove('hidden');
     gameOverContainer.classList.add('hidden');
-    console.log(highScoresList);
     scoreSheet.innerText = '';
-    for (i = 0; i < 10; i++) {
-        var highScoresListItem = document.createElement('h3');
-        highScoresListItem.textContent = highScoresList[i][0] + " " + highScoresList[i][1];
-        console.log(highScoresListItem);
-        scoreSheet.appendChild(highScoresListItem);
-    }; 
+    if (highScoresList.length > 0) {
+        for (i = 0; i < highScoresList.length; i++) {
+            var highScoresListItem = document.createElement('h3');
+            highScoresListItem.textContent = highScoresList[i][0] + " " + highScoresList[i][1];
+            scoreSheet.appendChild(highScoresListItem);
+        };
+        renderHighScore();
+    };
 }
 
 renderLastScore();
@@ -321,13 +316,15 @@ highScoreForm.addEventListener("submit", function (event) {
     var player = document.querySelector("#player").value;
     var highScoresListItem = [player, lastScore];
     event.preventDefault();
-    console.log(highScoresListItem);
-    console.log(player);
-    console.log(lastScore);
     localStorage.setItem("player", player);
     localStorage.setItem("lastScore", lastScore);
     highScoresList.push(highScoresListItem);
-    console.log(highScoresList);
+    highScoresList.sort(function(a, b) {
+        return b[1] - a[1];
+      });
+    if (highScoresList.length > 5) {
+        highScoresList.pop();
+    }
     localStorage.setItem('highScoresList', JSON.stringify(highScoresList));
     renderLastScore();
     renderScoresList();
