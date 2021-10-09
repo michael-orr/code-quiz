@@ -277,11 +277,13 @@ function renderHighScore() {
     var highScore = [];
     timerContainerEl.classList.add('hidden');
     highScoresList = JSON.parse(localStorage.getItem("highScoresList"));
+    if (highScoresList) {
     highScoresList.sort(function(a, b) {
         return b[1] - a[1];
       });
     highScore = highScoresList[0];
     highScoreEl.innerText = "High Score:   " + highScore[0] + " - " + highScore[1];
+    };
 }
 
 function clearScores() {
