@@ -10,5 +10,6 @@ Your score equals the number of seconds left on the timer when all questions are
 
 ## Preview
 
-![ This is a preview of the game.](./assets/images/screenshot_quiz_game.png) 
+![This is a preview of the game.](./assets/images/screenshot_quiz_game.PNG) 
+
 
