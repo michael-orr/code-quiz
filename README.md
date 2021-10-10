@@ -9,6 +9,7 @@ Every wrong answer subtracts 10 seconds.
 Your score equals the number of seconds left on the timer when all questions are answered.
 
 ## Preview
+https://michael-orr.github.io/code-quiz/
 
 ![This is a preview of the game.](./assets/images/screenshot_quiz_game.PNG) 
 
